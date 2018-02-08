@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import RecipesContainer from './containers/RecipesContainer.js';
+import RecipeListContainer from './containers/RecipeListContainer';
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h1>RecipeBook</h1>
         </div>
-        <RecipesContainer />
+        <RecipeListContainer />
       </div>
     );
   }
