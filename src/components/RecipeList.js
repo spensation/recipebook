@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const RecipeList = props =>
-  <ul>
+  <div>
     {props.recipes.map(r => (
-      <li>{r.title}-{r.category}-{r.serves}</li>
+      <div className="recipe-card">{r.title}-{r.category}-{r.serves}</div>
     ))}
-  </ul>;
+  </div>;

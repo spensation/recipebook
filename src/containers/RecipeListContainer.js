@@ -1,6 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import { RecipeList } from '../components/RecipeList';
+import '../App.css';
 
 class RecipeListContainer extends React.Component {
   constructor() {
