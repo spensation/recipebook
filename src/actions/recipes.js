@@ -14,8 +14,32 @@ export function fetchRecipes() {
 }
 
 export function addRecipe(recipe) {
-  return {
-    type: 'ADD_RECIPE',
-    recipe
-  };
-};
+  debugger
+  return(dispatch) => {
+
+    dispatch({ type: 'ADDING_RECIPE' });
+
+    return fetch('/api/v1/recipes', {
+      method: 'POST',
+      data: {
+        title: recipe.title,
+        category: recipe.category,
+        serves: recipe.serves,
+        prep_time: recipe.prep_time,
+        cook_time: recipe.cook_time,
+        total_time: recipe.total_time,
+        ingredients: recipe.ingredients,
+        directions: recipe.directions,
+        user_id: recipe.user_id
+      }
+    })
+    .then(response => response.json())
+    .then(recipes => {
+      dispatch({
+        type: 'SUCCESSFULLY_ADDED_RECIPE',
+        payload: recipes.recipe,
+      })
+      return recipes;
+    })
+  }
+}

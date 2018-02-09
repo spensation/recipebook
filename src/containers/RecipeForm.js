@@ -15,7 +15,8 @@ class RecipeForm extends Component {
       directions: '',
       prep_time: '',
       cook_time: '',
-      total_time: ''
+      total_time: '',
+      user_id: ''
     }
   }
 
@@ -31,7 +32,8 @@ class RecipeForm extends Component {
       directions: '',
       prep_time: '',
       cook_time: '',
-      total_time: ''
+      total_time: '',
+      user_id: ''
     })
   };
 
@@ -90,50 +92,55 @@ class RecipeForm extends Component {
         <form onSubmit={this.handleOnSubmit.bind(this)} >
           <textarea
             cols="40"
-            placeholder="Title"
-            name="title"
+            placeholder="Title"            
+            ref="title"
             onChange={this.titleHandleOnChange.bind(this)} />
           <textarea
             cols="20"
             placeholder="Category"
-            name="category"
+            ref="category"
             onChange={this.categoryHandleOnChange.bind(this)} />
             <br />
           <input
             type="text"
             placeholder="Serves"
-            name="serves"
+            ref="serves"
             onChange={this.servesHandleOnChange.bind(this)} />
           <input
             type="text"
             placeholder="Prep Time"
-            name="prep_time"
+            ref="prep_time"
             onChange={this.preptimeHandleOnChange.bind(this)} />
           <input
             type="text"
             placeholder="Cook Time"
-            name="cook_time"
+            ref="cook_time"
             onChange={this.cooktimeHandleOnChange.bind(this)} />
           <input
             type="text"
             placeholder="Total Time"
-            name="total_time"
+            ref="total_time"
             onChange={this.totaltimeHandleOnChange.bind(this)} />
           <br />
           <textarea
             cols="60"
             rows="20"
             placeholder="Ingredients"
-            name="ingredients"
+            ref="ingredients"
             onChange={this.ingredientsHandleOnChange.bind(this)} />
           <br />
           <textarea
             cols="60"
             rows="30"
             placeholder="Directions"
-            name="directions"
+            ref="directions"
             onChange={this.directionsHandleOnChange.bind(this)} />
             <br />
+          <input
+            type="hidden"
+            ref="user_id"
+            value="1"
+          />
           <input
             type="submit"
             value="Add Recipe" />
