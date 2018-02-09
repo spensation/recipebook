@@ -1,8 +1,9 @@
-import React from 'react';
-import { connect } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { addRecipe } from '../actions/recipes';
+import { bindActionCreators } from 'redux';
 
-class RecipeForm extends React.Component {
+class RecipeForm extends Component {
   constructor(props) {
     super(props);
 
@@ -86,52 +87,52 @@ class RecipeForm extends React.Component {
     return (
       <div>
         <h2>Add a Recipe</h2>
-        <form onSubmit={this.handleOnSubmit} >
+        <form onSubmit={this.handleOnSubmit.bind(this)} >
           <textarea
             cols="40"
             placeholder="Title"
             name="title"
-            onChange={this.titleHandleOnChange} />
+            onChange={this.titleHandleOnChange.bind(this)} />
           <textarea
             cols="20"
             placeholder="Category"
             name="category"
-            onChange={this.categoryHandleOnChange} />
+            onChange={this.categoryHandleOnChange.bind(this)} />
             <br />
           <input
             type="text"
             placeholder="Serves"
             name="serves"
-            onChange={this.servesHandleOnChange} />
+            onChange={this.servesHandleOnChange.bind(this)} />
           <input
             type="text"
             placeholder="Prep Time"
             name="prep_time"
-            onChange={this.preptimeHandleOnChange} />
+            onChange={this.preptimeHandleOnChange.bind(this)} />
           <input
             type="text"
             placeholder="Cook Time"
             name="cook_time"
-            onChange={this.cooktimeHandleOnChange} />
+            onChange={this.cooktimeHandleOnChange.bind(this)} />
           <input
             type="text"
             placeholder="Total Time"
             name="total_time"
-            onChange={this.totaltimeHandleOnChange} />
+            onChange={this.totaltimeHandleOnChange.bind(this)} />
           <br />
           <textarea
             cols="60"
             rows="20"
             placeholder="Ingredients"
             name="ingredients"
-            onChange={this.ingredientsHandleOnChange} />
+            onChange={this.ingredientsHandleOnChange.bind(this)} />
           <br />
           <textarea
             cols="60"
             rows="30"
             placeholder="Directions"
             name="directions"
-            onChange={this.directionsHandleOnChange} />
+            onChange={this.directionsHandleOnChange.bind(this)} />
             <br />
           <input
             type="submit"
@@ -140,6 +141,18 @@ class RecipeForm extends React.Component {
       </div>
     )
   }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    recipes: state.recipes
+  }
 };
 
-export default RecipeForm
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addRecipe: addRecipe
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeForm);
