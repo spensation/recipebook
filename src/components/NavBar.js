@@ -7,9 +7,10 @@ const NavBar = () => {
     width: '100px',
     padding: '12px',
     margin: '0 6px 6px',
-    background: 'blue',
+    background: '#FFF9FF',
     textDecoration: 'none',
-    color: 'white',
+    border: '1px solid blue',
+    borderRadius: '5px',
   }
   return (
     <div className="navbar">
@@ -21,7 +22,7 @@ const NavBar = () => {
         style={link}
         /* add prop for activeStyle */
         activeStyle={{
-          background: 'darkblue'
+          background: '#FFF9FF'
         }}
       >Home</NavLink>
       <NavLink
@@ -48,6 +49,14 @@ const NavBar = () => {
           background: 'darkblue'
         }}
       >Salads</NavLink>
+      <NavLink
+        to="/soups"
+        exact
+        style={link}
+        activeStyle={{
+          background: 'darkblue'
+        }}
+      >Soups</NavLink>
       <NavLink
         to="/desserts"
         exact

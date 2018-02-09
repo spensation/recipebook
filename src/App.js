@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import RecipeListContainer from './containers/RecipeListContainer';
+import RecipeForm from './containers/RecipeForm';
 import NavBar from './components/NavBar';
 
 class App extends Component {
@@ -16,8 +17,9 @@ class App extends Component {
           <NavBar />
         </div>
         <div className="App-header">
-          <h1>RecipeBook</h1>
+          <h1 className="App-title">RECIPE BOOK</h1>
         </div>
+        <RecipeForm />
         <RecipeListContainer />
       </div>
     );
